@@ -1,0 +1,21 @@
+
+# BEGIN WordPress
+# The directives (lines) between "BEGIN WordPress" and "END WordPress" are
+# dynamically generated, and should only be modified via WordPress filters.
+# Any changes to the directives between these markers will be overwritten.
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+RewriteBase /Green5M/
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /Green5M/index.php [L]
+</IfModule>
+
+<IfModule mod_headers.c>
+    Header always append X-Frame-Options "SAMEORIGIN"
+    Header set Content-Security-Policy "frame-ancestors 'self' https://readyforyourreview.com/Green5M/"
+</IfModule>
+
+# END WordPress
